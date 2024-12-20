@@ -1,0 +1,5 @@
+{
+    "projectId": "deployment-cloud-run",
+    "bucketName": "imgtemp",
+    "machineLearningUrl": "https://your-machine-learning-service-url"
+  }

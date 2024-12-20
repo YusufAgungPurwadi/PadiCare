@@ -1,0 +1,13 @@
+- name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://source.developers.google.com/p/deployment-cloud-run/r/github_padicare_cloud-computing']
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'gcr.io/${_PROJECT_ID}/${_IMAGE_NAME}:$SHORT_SHA', '.' ]
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'push', 'gcr.io/${_PROJECT_ID}/${_IMAGE_NAME}:$SHORT_SHA']
+
+substitutions:
+  _IMAGE_NAME: cicd-image
+  _SHORT_SHA: v1.0
+  _PROJECT_ID: deployment-cloud-run
